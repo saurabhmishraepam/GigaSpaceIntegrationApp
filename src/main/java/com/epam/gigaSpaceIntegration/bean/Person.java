@@ -1,6 +1,9 @@
 package com.epam.gigaSpaceIntegration.bean;
 
-import com.gigaspaces.annotation.pojo.*;
+import com.gigaspaces.annotation.pojo.SpaceClass;
+import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import com.gigaspaces.metadata.index.SpaceIndexType;
 
 @SpaceClass
@@ -12,33 +15,39 @@ public class Person {
     private String phoneNumber;
     private Integer age;
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Person() {
     }
+
+    public Person(Integer id, String firstName, String lastName, String phoneNumber, Integer age) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+
+    }
+
+    public Person(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Person(String firstName, String lastName) {
+        this.lastName = lastName;
+    }
+
     @SpaceId
     public Integer getId() {
         return id;
     }
 
-    public Person() {}
-    public Person( Integer id, String firstName, String lastName, String phoneNumber, Integer age) {
-        this.id=id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber=phoneNumber;
-        this.age=age;
-
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Person(String firstName){
-        this.firstName=firstName;
-    }
-    public Person(String firstName, String lastName){
-        this.lastName=lastName;
-    }
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -60,7 +69,8 @@ public class Person {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    @SpaceIndex(type= SpaceIndexType.EQUAL)
+
+    @SpaceIndex(type = SpaceIndexType.EQUAL)
     public String getLastName() {
         return lastName;
     }
