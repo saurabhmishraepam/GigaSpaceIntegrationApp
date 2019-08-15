@@ -1,9 +1,6 @@
 package com.epam.gigaSpaceIntegration.bean;
 
-import com.gigaspaces.annotation.pojo.SpaceClass;
-import com.gigaspaces.annotation.pojo.SpaceId;
-import com.gigaspaces.annotation.pojo.SpaceIndex;
-import com.gigaspaces.annotation.pojo.SpaceRouting;
+import com.gigaspaces.annotation.pojo.*;
 import com.gigaspaces.metadata.index.SpaceIndexType;
 
 @SpaceClass
@@ -14,6 +11,7 @@ public class Person {
     private String lastName;
     private String phoneNumber;
     private Integer age;
+    private Integer version;
 
     public Person() {
     }
@@ -94,15 +92,24 @@ public class Person {
     public int hashCode() {
         return id.hashCode();
     }
+    @SpaceVersion
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     @Override
     public String toString() {
         return "Person{" +
-                "uuid=" + id +
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", age=" + age +
+                ", version=" + version +
                 '}';
     }
 }

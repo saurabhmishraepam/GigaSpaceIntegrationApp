@@ -13,7 +13,6 @@ public class PollingContrllerService {
     private GigaSpace gigaSpace;
 
     public PollingContrllerService() {
-        gigaSpace = xapConfiguration.gigaSpaceFactory();
     }
 
     public void pollingControllerRegister(){

@@ -7,7 +7,6 @@ import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Optional;
 
 
@@ -17,12 +16,11 @@ public class GSPersonService {
     private GigaSpace gigaSpace;
 
     public GSPersonService() {
-        gigaSpace = xapConfiguration.gigaSpaceFactory();
+            gigaSpace = xapConfiguration.gigaSpaceFactory();
     }
 
     public void write(final Person person) {
         LeaseContext<Person> context = gigaSpace.write(person);
-
         if (context.getVersion() == 1) {
             logger.info("write - " + person);
         } else {
@@ -46,13 +44,12 @@ public class GSPersonService {
 
     }
 
-
     public Optional<Person> readByQuery(SQLQuery<Person> query) {
         Person result = gigaSpace.read(query);
         return Optional.of(result);
     }
 
-    public Person[] readMutlipltByQuery(SQLQuery<Person> query) {
+    public Person[] readMultipleByQuery(SQLQuery<Person> query) {
         Person[] result = gigaSpace.readMultiple(query);
         return result;
     }
