@@ -7,6 +7,7 @@ import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
+import org.openspaces.core.space.CannotFindSpaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +29,19 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
      * @param xapSpacedetailes host and space details class
      */
     public GSCacheQueryServiceImpl(GSGridModeConstant mode, XAPSpaceConstant xapSpacedetailes) {
-        gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
+        try {
+            gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
+        }catch (CannotFindSpaceException exce){
+            logger.error("Space name is not valid : {}", exce);
+            throw new IllegalArgumentException("Bad gigaspace configuration details space : {} ", exce);
+        }
+        finally {
+            if(gigaSpace==null){
+                logger.error("Unable to connect to the GS Service: {}");
+                throw new IllegalArgumentException("Bad gigaspace configuration details");
+            }
+            logger.info("connected succesfuly to GS Service : {}", gigaSpace);
+        }
     }
 
     @Override

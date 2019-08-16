@@ -16,4 +16,5 @@ public class QueryBuilder {
         sb.append(value);
         return sb.toString();
     }
+
 }
