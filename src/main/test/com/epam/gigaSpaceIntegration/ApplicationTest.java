@@ -25,18 +25,21 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
 public class ApplicationTest {
+
+    //modify these properties to change the space and host configuration
+    private static final String HOST_NAME ="person";
+    private static final String SPACE_NAME ="EPINHYDW0423";
+
     private static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
+
     private static List<Person> personsList = new ArrayList(1000);
     private static Random rnd = new Random(999);
-
     private static String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
     private static String[] lastNames = {"Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN"};
 
     private static XAPSpaceConstant xapSpacedetailes;
     private static CacheQueryService<Person> personCacheService ;
     private static GSGridModeConstant mode;
-    private static final String HOST_NAME ="person";
-    private static final String SPACE_NAME ="EPINHYDW0423";
 
     @Rule
     public ExpectedException unusableEntryException = ExpectedException.none();
@@ -52,7 +55,7 @@ public class ApplicationTest {
         xapSpacedetailes.setSpaceName(HOST_NAME);
         xapSpacedetailes.setHostName(SPACE_NAME);
         mode=GSGridModeConstant.REMOTE;
-        //Caller should be aware of which enviornment it hase to call for
+        //Caller should be aware of which enviornment it has to connect to
         personCacheService=   new GSCacheQueryServiceImpl<Person>(mode, xapSpacedetailes);
     }
 

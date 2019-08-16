@@ -1,5 +1,9 @@
 package com.epam.gigaSpaceIntegration.constant;
 
+/**
+ * This class represents the Space details
+ * can be extended to support jini url to be added here
+ */
 public enum XAPSpaceConstant {
 
 

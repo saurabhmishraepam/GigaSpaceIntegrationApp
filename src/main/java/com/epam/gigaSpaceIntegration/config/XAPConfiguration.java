@@ -9,6 +9,10 @@ import org.openspaces.core.space.SpaceProxyConfigurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Factory class to get the instance of Gigaspace
+ * can be refactored to multiple implementation of the type of objects
+ */
 public class XAPConfiguration {
     private static Logger logger = LoggerFactory.getLogger(XAPConfiguration.class);
 

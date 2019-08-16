@@ -12,11 +12,21 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
+/**
+ * GS client dependent implementation
+ * @param <T> T is the type of object to persist in the cache
+ */
 public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
 
     private static final Logger logger = LoggerFactory.getLogger(GSCacheQueryServiceImpl.class);
     // this can be autowired
     private GigaSpace gigaSpace;
+
+    /**
+     * get the instance of the class with two environment aware properties
+     * @param mode Embedded/ Remote
+     * @param xapSpacedetailes host and space details class
+     */
     public GSCacheQueryServiceImpl(GSGridModeConstant mode, XAPSpaceConstant xapSpacedetailes) {
         gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
     }

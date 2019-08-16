@@ -1,5 +1,8 @@
 package com.epam.gigaSpaceIntegration.constant;
 
+/**
+ * Define the Query to write services independent of these string defination
+ */
 public enum QueryConstants {
 
     GT(">", "greater"),

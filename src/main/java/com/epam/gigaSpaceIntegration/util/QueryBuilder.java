@@ -2,6 +2,9 @@ package com.epam.gigaSpaceIntegration.util;
 
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
 
+/**
+ * define the logic to build the query and validate against predefined rules
+ */
 public class QueryBuilder {
 
     public static String queryBuilder(QueryConstants queryConst, String key, String value ){
