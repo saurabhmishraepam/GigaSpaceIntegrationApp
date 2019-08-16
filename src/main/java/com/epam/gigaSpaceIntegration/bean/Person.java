@@ -13,23 +13,19 @@ public class Person {
     private Integer age;
     private Integer version;
 
-    public Person() {
-    }
+    public Person() { }
     public Person(String firstName) {
         this.firstName = firstName;
     }
-
     public Person(String firstName, String lastName) {
         this.lastName = lastName;
     }
-
     public Person(Integer id, String firstName, String lastName, String phoneNumber, Integer age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.age = age;
-
     }
 
     @SpaceId

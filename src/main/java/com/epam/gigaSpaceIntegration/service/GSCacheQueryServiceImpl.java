@@ -3,6 +3,7 @@ package com.epam.gigaSpaceIntegration.service;
 import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
+import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
@@ -16,9 +17,8 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
     private static final Logger logger = LoggerFactory.getLogger(GSCacheQueryServiceImpl.class);
     // this can be autowired
     private GigaSpace gigaSpace;
-
-    public GSCacheQueryServiceImpl() {
-        gigaSpace = new XAPConfiguration().gigaSpaceFactory(GSGridModeConstant.REMOTE);
+    public GSCacheQueryServiceImpl(GSGridModeConstant mode, XAPSpaceConstant xapSpacedetailes) {
+        gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
     }
 
     @Override

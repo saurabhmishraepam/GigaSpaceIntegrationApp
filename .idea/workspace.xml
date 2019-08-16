@@ -2,32 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e41d2d4e-5013-470e-9e89-a032a43249af" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/app/PollingContainerLifeCycleMain$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/app/PollingContainerLifeCycleMain.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/bean/Data.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/config/GSGridModeConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/config/XAPSpaceConstant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/PollingContrllerService$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/PollingContrllerService.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/app/PollingContainerLifeCycleMain.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContainerLifeCycleMain.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Data.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/polling/Data.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/PollingContrllerService.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContrllerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/bean/Person.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/bean/Person.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/bean/PersonV1.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/bean/PersonV1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/config/XAPConfiguration.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/config/XAPConfiguration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/GSPersonService.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/service/GSPersonService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/util/QueryBuilder.class" afterPath="$PROJECT_DIR$/target/classes/com/epam/gigaSpaceIntegration/util/QueryBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/epam/gigaSpaceIntegration/ApplicationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/epam/gigaSpaceIntegration/ApplicationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/util/QueryBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/util/QueryBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java" afterPath="$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,12 +22,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CacheService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheService.java">
+      <file leaf-file-name="GSCacheQueryServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-              <folding />
+              <caret line="20" column="84" lean-forward="true" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+              <folding>
+                <element signature="e#1244#1245#0" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5708#5718#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,61 +58,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GSCacheQueryServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java">
+      <file leaf-file-name="QueryConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <element signature="e#1202#1203#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1453#1461#0" expanded="true" />
-                <element signature="e#4937#4947#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PollingContrllerService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContrllerService.java">
+      <file leaf-file-name="GSGridModeConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#856#1108#0" expanded="true" />
-                <element signature="e#1107#1108#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/polling/Data.java">
+      <file leaf-file-name="XAPSpaceConstant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="221">
+              <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -122,8 +91,34 @@
       <file leaf-file-name="XAPConfiguration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="187">
+              <caret line="14" column="37" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonV1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1412#1413#0" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,18 +132,6 @@
             <state relative-caret-position="153">
               <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PollingContainerLifeCycleMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContainerLifeCycleMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -188,22 +171,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheQueryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/GSGridModeConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContrllerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/polling/Data.java" />
         <option value="$PROJECT_DIR$/src/main/java/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContainerLifeCycleMain.java" />
-        <option value="$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/util/QueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java" />
       </list>
     </option>
   </component>
@@ -630,8 +613,8 @@
     <history-entry file="ApplicationTest - 2019.08.16 at 14h 26m 22s.xml">
       <configuration name="ApplicationTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ApplicationTest_writeDifferentVersionOfPersonShouldThrowException - 2019.08.16 at 14h 12m 46s.xml">
-      <configuration name="ApplicationTest.writeDifferentVersionOfPersonShouldThrowException" configurationId="JUnit" />
+    <history-entry file="ApplicationTest - 2019.08.16 at 15h 13m 31s.xml">
+      <configuration name="ApplicationTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ApplicationTest_writeDifferentVersionOfPersonShouldThrowException - 2019.08.16 at 14h 15m 32s.xml">
       <configuration name="ApplicationTest.writeDifferentVersionOfPersonShouldThrowException" configurationId="JUnit" />
@@ -661,9 +644,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47071823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47071823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -753,21 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/Assert.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -792,60 +760,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/polling/PollingContrllerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#856#1108#0" expanded="true" />
-            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#856#1108#0" expanded="false" />
+            <element signature="e#1107#1108#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -863,24 +785,8 @@
         <state relative-caret-position="185">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheQueryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="58" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/util/QueryBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -900,16 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -918,24 +814,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/util/QueryBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSPersonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/bean/PersonV1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/GSGridModeConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" lean-forward="true" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/QueryConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/config/XAPConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="37" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/CacheQueryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="58" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/service/GSCacheQueryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="20" column="84" lean-forward="true" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
           <folding>
-            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/gigaSpaceIntegration/constant/XAPSpaceConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/com/epam/gigaSpaceIntegration/ApplicationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="158" column="0" lean-forward="true" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+        <state relative-caret-position="318">
+          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1453#1461#0" expanded="true" />
-            <element signature="e#4937#4947#0" expanded="true" />
+            <element signature="e#5708#5718#0" expanded="true" />
           </folding>
         </state>
       </provider>

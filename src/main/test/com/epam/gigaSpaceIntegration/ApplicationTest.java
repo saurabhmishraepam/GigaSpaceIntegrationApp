@@ -2,10 +2,11 @@ package com.epam.gigaSpaceIntegration;
 
 import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.bean.PersonV1;
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
+import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import com.epam.gigaSpaceIntegration.service.CacheQueryService;
 import com.epam.gigaSpaceIntegration.service.GSCacheQueryServiceImpl;
-import com.epam.gigaSpaceIntegration.service.GSPersonService;
 import com.epam.gigaSpaceIntegration.util.QueryBuilder;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -24,20 +25,38 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
 public class ApplicationTest {
-    private static Logger logger = LoggerFactory.getLogger(GSPersonService.class);
+    private static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
     private static List<Person> personsList = new ArrayList(1000);
     private static Random rnd = new Random(999);
 
     private static String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
     private static String[] lastNames = {"Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN"};
 
-    private static CacheQueryService<Person> personCacheService = new GSCacheQueryServiceImpl<Person>();
+    private static XAPSpaceConstant xapSpacedetailes;
+    private static CacheQueryService<Person> personCacheService ;
+    private static GSGridModeConstant mode;
+    private static final String HOST_NAME ="person";
+    private static final String SPACE_NAME ="EPINHYDW0423";
 
     @Rule
     public ExpectedException unusableEntryException = ExpectedException.none();
 
     @BeforeClass
     public static void init() {
+        prepareTestEnvironment();
+        prepareTestData();
+    }
+
+    private static void prepareTestEnvironment(){
+        xapSpacedetailes=XAPSpaceConstant.CUSTOME_SPACE;
+        xapSpacedetailes.setSpaceName(HOST_NAME);
+        xapSpacedetailes.setHostName(SPACE_NAME);
+        mode=GSGridModeConstant.REMOTE;
+        //Caller should be aware of which enviornment it hase to call for
+        personCacheService=   new GSCacheQueryServiceImpl<Person>(mode, xapSpacedetailes);
+    }
+
+    private static void prepareTestData(){
 
         for (int i = 0; i < 1000; i++) {
             int indF = rnd.nextInt(9);
@@ -49,6 +68,7 @@ public class ApplicationTest {
             personsList.add(person);
             personCacheService.write(person);
         }
+
     }
 
     @AfterClass
@@ -119,7 +139,7 @@ public class ApplicationTest {
         Optional<Person> person2 = personCacheService.readById(new Person(), 1001);
         assertTrue(person2.isPresent());
 
-        CacheQueryService<PersonV1> personV1CacheService = new GSCacheQueryServiceImpl<PersonV1>();
+        CacheQueryService<PersonV1> personV1CacheService = new GSCacheQueryServiceImpl<PersonV1>(mode, xapSpacedetailes);
         unusableEntryException.expect(UnusableEntryException.class);
         unusableEntryException.expectMessage("The operation's type description is incompatible with the type description stored in the space.");
         personV1CacheService.write(new PersonV1(1001, firstName, lastNmae, age));

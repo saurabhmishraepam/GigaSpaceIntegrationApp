@@ -2,12 +2,14 @@ package com.epam.gigaSpaceIntegration.constant;
 
 public enum XAPSpaceConstant {
 
-    DEFAULT_SPACE("person", "EPINHYDW0423"),
-    //to configure
-    CUSTOME_SPACE("", "");
+
+    CUSTOME_SPACE();
 
     private String spaceName;
     private String hostName;
+    XAPSpaceConstant(){
+
+    }
     XAPSpaceConstant(String spaceName, String hostName) {
         this.spaceName = spaceName;
         this.hostName = hostName;

@@ -9,12 +9,15 @@ public class PersonV1 {
     private Integer id;
     private String firstName;
     private String lastName;
-
-    //private String phoneNumber;
     private Integer age;
     private Integer version;
 
-    public PersonV1() {
+    public PersonV1() { }
+    public PersonV1(String firstName) {
+        this.firstName = firstName;
+    }
+    public PersonV1(String firstName, String lastName) {
+        this.lastName = lastName;
     }
 
     public PersonV1(Integer id, String firstName, String lastName, Integer age) {
@@ -22,15 +25,6 @@ public class PersonV1 {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-
-    }
-
-    public PersonV1(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public PersonV1(String firstName, String lastName) {
-        this.lastName = lastName;
     }
 
     @SpaceId
@@ -42,7 +36,6 @@ public class PersonV1 {
         this.id = id;
     }
 
-
     public Integer getAge() {
         return age;
     }
@@ -50,7 +43,6 @@ public class PersonV1 {
     public void setAge(Integer age) {
         this.age = age;
     }
-
 
     @SpaceRouting
     public String getFirstName() {
@@ -69,14 +61,15 @@ public class PersonV1 {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
 
     @SpaceVersion
     public Integer getVersion() {
         return version;
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 
     @Override

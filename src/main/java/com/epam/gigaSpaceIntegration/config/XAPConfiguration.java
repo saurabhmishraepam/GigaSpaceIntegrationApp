@@ -11,16 +11,15 @@ import org.slf4j.LoggerFactory;
 
 public class XAPConfiguration {
     private static Logger logger = LoggerFactory.getLogger(XAPConfiguration.class);
-    private XAPSpaceConstant defaultConfig = XAPSpaceConstant.DEFAULT_SPACE;
 
-    public GigaSpace gigaSpaceFactory(GSGridModeConstant gridMode) {
+    public GigaSpace gigaSpaceFactory(GSGridModeConstant gridMode, XAPSpaceConstant XAPSpaceDetails) {
 
         switch (gridMode) {
             case EMBEDDED: {
-                return gigaSpaceFactoryEmbedded();
+                return gigaSpaceFactoryEmbedded(XAPSpaceDetails);
             }
             case REMOTE: {
-                return gigaSpaceFactoryRemote();
+                return gigaSpaceFactoryRemote(XAPSpaceDetails);
             }
 
         }
@@ -28,13 +27,13 @@ public class XAPConfiguration {
 
     }
 
-    private GigaSpace gigaSpaceFactoryEmbedded() {
+    private GigaSpace gigaSpaceFactoryEmbedded(XAPSpaceConstant defaultConfig) {
         GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(defaultConfig.getSpaceName())).gigaSpace();
         logger.info("Created embedded data-grid: " + defaultConfig.getSpaceName());
         return space;
     }
 
-    private GigaSpace gigaSpaceFactoryRemote() {
+    private GigaSpace gigaSpaceFactoryRemote(XAPSpaceConstant defaultConfig) {
         GigaSpace space = new GigaSpaceConfigurer(new SpaceProxyConfigurer(defaultConfig.getSpaceName()).lookupLocators(defaultConfig.getHostName())).gigaSpace();
         //GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace?locators=Host1,Host2")).gigaSpace();
         logger.info("Connected to remote data-grid: " + defaultConfig.getSpaceName());
