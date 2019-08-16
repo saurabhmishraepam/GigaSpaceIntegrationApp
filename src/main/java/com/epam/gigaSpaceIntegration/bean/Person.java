@@ -12,7 +12,6 @@ public class Person {
     private String phoneNumber;
     private Integer age;
     private Integer version;
-
     public Person() {
     }
 

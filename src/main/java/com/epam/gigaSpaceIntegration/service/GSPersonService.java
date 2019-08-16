@@ -1,5 +1,6 @@
 package com.epam.gigaSpaceIntegration.service;
 
+import com.epam.gigaSpaceIntegration.config.GSGridModeConfig;
 import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
 import com.j_spaces.core.LeaseContext;
@@ -16,7 +17,7 @@ public class GSPersonService {
     private GigaSpace gigaSpace;
 
     public GSPersonService() {
-            gigaSpace = xapConfiguration.gigaSpaceFactory();
+            gigaSpace = xapConfiguration.gigaSpaceFactory(GSGridModeConfig.REMOTE);
     }
 
     public void write(final Person person) {
@@ -38,6 +39,17 @@ public class GSPersonService {
         return results;
     }
 
+
+
+    public Optional<Person> readById(int id) {
+
+        return Optional.of(gigaSpace.readById(Person.class, id));
+    }
+
+
+
+
+
     public Optional<Person> readByQuery(String key, String value) {
 
         return readByQuery(new SQLQuery<>(Person.class, key + "=?", value));
@@ -55,9 +67,6 @@ public class GSPersonService {
     }
 
 
-    public Optional<Person> readById(int id) {
 
-        return Optional.of(gigaSpace.readById(Person.class, id));
-    }
 
 }

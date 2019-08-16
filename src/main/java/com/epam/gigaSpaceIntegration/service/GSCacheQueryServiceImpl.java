@@ -1,5 +1,6 @@
 package com.epam.gigaSpaceIntegration.service;
 
+import com.epam.gigaSpaceIntegration.config.GSGridModeConfig;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
@@ -9,14 +10,13 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
-public class GSCacheServiceImpl<T> implements CacheService<T> {
+public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
 
-    private static final Logger logger = LoggerFactory.getLogger(GSCacheServiceImpl.class);
-    private XAPConfiguration xapConfiguration = new XAPConfiguration();
+    private static final Logger logger = LoggerFactory.getLogger(GSCacheQueryServiceImpl.class);
+    // this can be autowired
     private GigaSpace gigaSpace;
-
-    public GSCacheServiceImpl() {
-        gigaSpace = xapConfiguration.gigaSpaceFactory();
+    public GSCacheQueryServiceImpl() {
+        gigaSpace = new XAPConfiguration().gigaSpaceFactory(GSGridModeConfig.REMOTE);
     }
 
     @Override
@@ -45,13 +45,23 @@ public class GSCacheServiceImpl<T> implements CacheService<T> {
         return results;
     }
 
+    @Override
+    public Optional<T> readByQuery(T t, String key, String value) {
 
-    public Optional<T> readByQuery(SQLQuery<T> query) {
+        return readByQuery(new SQLQuery(t.getClass(), key + "=?", value));
+
+    }
+    private Optional<T> readByQuery(SQLQuery<T> query) {
         T result = gigaSpace.read(query);
         return Optional.of(result);
     }
+    @Override
+    public T[] readMultipleByQuery(T t, String query) {
+        T[] result = (T[])readMultipleByQuery(new SQLQuery(t.getClass(), query));
+        return result;
+    }
 
-    public T[] readMultipleByQuery(SQLQuery<T> query) {
+    private T[] readMultipleByQuery(SQLQuery<T> query) {
         T[] result = gigaSpace.readMultiple(query);
         return result;
     }

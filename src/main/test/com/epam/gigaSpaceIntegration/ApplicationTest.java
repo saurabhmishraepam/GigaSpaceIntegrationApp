@@ -1,14 +1,12 @@
 package com.epam.gigaSpaceIntegration;
 
 import com.epam.gigaSpaceIntegration.bean.Person;
+import com.epam.gigaSpaceIntegration.service.CacheQueryService;
 import com.epam.gigaSpaceIntegration.service.CacheService;
-import com.epam.gigaSpaceIntegration.service.GSCacheServiceImpl;
+import com.epam.gigaSpaceIntegration.service.GSCacheQueryServiceImpl;
 import com.epam.gigaSpaceIntegration.service.GSPersonService;
 import com.j_spaces.core.client.SQLQuery;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
@@ -23,13 +21,11 @@ import java.util.Random;
 public class ApplicationTest {
     private static Logger logger = LoggerFactory.getLogger(GSPersonService.class);
     private static List<Person> personsList = new ArrayList(1000);
-    private GSPersonService gsPersonService = new GSPersonService();
     private Random rnd = new Random(1000);
 
-    private static CacheService<Person> personCacheService=new GSCacheServiceImpl<Person>();
+    private static CacheQueryService<Person> personCacheService=new GSCacheQueryServiceImpl<Person>();
     @BeforeClass
     public static void init() {
-        GSPersonService gsPersonService = new GSPersonService();
         Random rnd = new Random(1000);
 
         String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
@@ -47,20 +43,19 @@ public class ApplicationTest {
         }
     }
 
-    @AfterClass
+   // @AfterClass
     public static void cleanup() {
         //clean after all is processed
-      /*  GSPersonService gsPersonService = new GSPersonService();
         personsList.forEach(
                 v -> {
-                    gsPersonService.readByQuery("firstName", v.getFirstName()).ifPresent(q ->
+                    personCacheService.readByQuery(new Person(),"firstName", v.getFirstName()).ifPresent(q ->
                             {
                                 personCacheService.deletePerson(q);
                             }
                     );
                 }
         );
-*/
+
     }
 
     @Test
@@ -70,10 +65,7 @@ public class ApplicationTest {
         personCacheService.deletePerson(new Person(2, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(1, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(2, "saurabh", "mishra", "", age));
-
-        // Optional<Person> result1 = gsPersonService.readById(1);
-        // System.out.println("Result: " + result1);
-        Optional<Person> result2 = gsPersonService.readByQuery("firstName", "saurabh");
+        Optional<Person> result2 = personCacheService.readByQuery(new Person(),"firstName", "saurabh");
         logger.info("Result: " + result2);
         Person[] results = personCacheService.readAll(new Person());
         logger.info("Result: " + java.util.Arrays.toString(results));
@@ -99,7 +91,7 @@ public class ApplicationTest {
 
     @Test
     public void getAllPersonWithAgeGtThen30() {
-        Person[] arr = gsPersonService.readMultipleByQuery(new SQLQuery<>(Person.class, "age >30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(), "age >30");
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
         Assert.assertTrue(count == arr.length);
