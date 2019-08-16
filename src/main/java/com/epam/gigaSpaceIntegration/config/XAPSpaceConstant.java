@@ -5,12 +5,13 @@ public enum XAPSpaceConstant {
     DEFAULT_SPACE("person", "EPINHYDW0423"),
     //to configure
     CUSTOME_SPACE("", "");
-    XAPSpaceConstant(String spaceName , String hostName){
-        this.spaceName=spaceName;
-        this.hostName= hostName;
-    }
+
     private String spaceName;
     private String hostName;
+    XAPSpaceConstant(String spaceName, String hostName) {
+        this.spaceName = spaceName;
+        this.hostName = hostName;
+    }
 
     public String getSpaceName() {
         return spaceName;

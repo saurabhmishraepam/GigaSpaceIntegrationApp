@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Optional;
 
-
+@Deprecated
 public class GSPersonService {
     private static Logger logger = LoggerFactory.getLogger(GSPersonService.class);
     private XAPConfiguration xapConfiguration = new XAPConfiguration();
@@ -45,9 +45,6 @@ public class GSPersonService {
 
         return Optional.of(gigaSpace.readById(Person.class, id));
     }
-
-
-
 
 
     public Optional<Person> readByQuery(String key, String value) {
