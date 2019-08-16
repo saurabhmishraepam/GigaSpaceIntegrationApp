@@ -1,13 +1,14 @@
 package com.epam.gigaSpaceIntegration.service;
 
-import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.util.Optional;
 
 @Deprecated
@@ -17,7 +18,7 @@ public class GSPersonService {
     private GigaSpace gigaSpace;
 
     public GSPersonService() {
-            gigaSpace = xapConfiguration.gigaSpaceFactory(GSGridModeConstant.REMOTE);
+        gigaSpace = xapConfiguration.gigaSpaceFactory(GSGridModeConstant.REMOTE);
     }
 
     public void write(final Person person) {
@@ -38,7 +39,6 @@ public class GSPersonService {
         Person[] results = gigaSpace.readMultiple(person);
         return results;
     }
-
 
 
     public Optional<Person> readById(int id) {
@@ -62,8 +62,6 @@ public class GSPersonService {
         Person[] result = gigaSpace.readMultiple(query);
         return result;
     }
-
-
 
 
 }

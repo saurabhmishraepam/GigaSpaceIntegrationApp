@@ -12,7 +12,15 @@ public class Person {
     private String phoneNumber;
     private Integer age;
     private Integer version;
+
     public Person() {
+    }
+    public Person(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Person(String firstName, String lastName) {
+        this.lastName = lastName;
     }
 
     public Person(Integer id, String firstName, String lastName, String phoneNumber, Integer age) {
@@ -22,14 +30,6 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.age = age;
 
-    }
-
-    public Person(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public Person(String firstName, String lastName) {
-        this.lastName = lastName;
     }
 
     @SpaceId
@@ -57,7 +57,6 @@ public class Person {
         this.age = age;
     }
 
-
     @SpaceRouting
     public String getFirstName() {
         return firstName;
@@ -76,6 +75,14 @@ public class Person {
         this.lastName = lastName;
     }
 
+    @SpaceVersion
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -90,14 +97,6 @@ public class Person {
     @Override
     public int hashCode() {
         return id.hashCode();
-    }
-    @SpaceVersion
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
     @Override

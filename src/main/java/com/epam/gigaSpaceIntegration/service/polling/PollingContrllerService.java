@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.service;
+package com.epam.gigaSpaceIntegration.service.polling;
 
 import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;

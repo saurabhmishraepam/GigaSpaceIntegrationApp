@@ -6,6 +6,8 @@ public class QueryBuilder {
 
     public static String queryBuilder(QueryConstants queryConst, String key, String value ){
 
+        // add query validity checks
+
         StringBuilder sb=new StringBuilder(key);
         sb.append(queryConst.toString());
         sb.append(value);

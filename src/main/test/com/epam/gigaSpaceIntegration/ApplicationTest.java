@@ -4,14 +4,13 @@ import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.bean.PersonV1;
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
 import com.epam.gigaSpaceIntegration.service.CacheQueryService;
-import com.epam.gigaSpaceIntegration.service.CacheService;
 import com.epam.gigaSpaceIntegration.service.GSCacheQueryServiceImpl;
 import com.epam.gigaSpaceIntegration.service.GSPersonService;
 import com.epam.gigaSpaceIntegration.util.QueryBuilder;
-import com.j_spaces.core.client.SQLQuery;
-import org.junit.*;
-import static org.junit.Assert.*;
-
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -20,6 +19,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JUnit4.class)
 public class ApplicationTest {
@@ -30,9 +31,11 @@ public class ApplicationTest {
     private static String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
     private static String[] lastNames = {"Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN"};
 
+    private static CacheQueryService<Person> personCacheService = new GSCacheQueryServiceImpl<Person>();
 
+    @Rule
+    public ExpectedException unusableEntryException = ExpectedException.none();
 
-    private static CacheQueryService<Person> personCacheService=new GSCacheQueryServiceImpl<Person>();
     @BeforeClass
     public static void init() {
 
@@ -70,7 +73,7 @@ public class ApplicationTest {
         personCacheService.deletePerson(new Person(2, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(1, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(2, "saurabh", "mishra", "", age));
-        Optional<Person> result2 = personCacheService.readByQuery(new Person(),"firstName", "saurabh");
+        Optional<Person> result2 = personCacheService.readByQuery(new Person(), "firstName", "saurabh");
         logger.info("Result: " + result2);
         Person[] results = personCacheService.readAll(new Person());
         logger.info("Result: " + java.util.Arrays.toString(results));
@@ -96,15 +99,14 @@ public class ApplicationTest {
 
     @Test
     public void getAllPersonWithAgeGtThen30() {
-        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder( QueryConstants.GT,"age", "30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
         assertTrue(count == arr.length);
     }
 
-    @Rule public ExpectedException unusableEntryException= ExpectedException.none();
     @Test
-    public void writeDifferentVersionOfPersonShouldThrowException(){
+    public void writeDifferentVersionOfPersonShouldThrowException() {
 
         int indF = rnd.nextInt(9);
         int indL = rnd.nextInt(9);
@@ -114,10 +116,10 @@ public class ApplicationTest {
         Person person = new Person(1001, firstName, lastNmae, "", age);
         personCacheService.write(person);
 
-        Optional<Person> person2=personCacheService.readById(new Person(), 1001);
+        Optional<Person> person2 = personCacheService.readById(new Person(), 1001);
         assertTrue(person2.isPresent());
 
-        CacheQueryService<PersonV1> personV1CacheService=new GSCacheQueryServiceImpl<PersonV1>();
+        CacheQueryService<PersonV1> personV1CacheService = new GSCacheQueryServiceImpl<PersonV1>();
         unusableEntryException.expect(UnusableEntryException.class);
         unusableEntryException.expectMessage("The operation's type description is incompatible with the type description stored in the space.");
         personV1CacheService.write(new PersonV1(1001, firstName, lastNmae, age));
@@ -125,7 +127,7 @@ public class ApplicationTest {
     }
 
     @Test
-    public void writeShouldThrowVersionConflictError(){
+    public void writeShouldThrowVersionConflictError() {
 
         int indF = rnd.nextInt(9);
         int indL = rnd.nextInt(9);
@@ -134,11 +136,11 @@ public class ApplicationTest {
         int age = rnd.nextInt(20) + 20;
         Person person = new Person(1001, firstName, lastNmae, "", age);
         person.setVersion(1);
-        Optional<Person> personOptional=personCacheService.readById(new Person(), 1001);
-        Person personOld=personOptional.get();
+        Optional<Person> personOptional = personCacheService.readById(new Person(), 1001);
+        Person personOld = personOptional.get();
         System.out.println(personOld);
         personCacheService.write(person);
-        Person person1 = new Person(1001, firstName+"S", lastNmae+"M", "", age+10);
+        Person person1 = new Person(1001, firstName + "S", lastNmae + "M", "", age + 10);
         person1.setVersion(2);
         personCacheService.write(person1);
 
@@ -149,14 +151,10 @@ public class ApplicationTest {
     }
 
 
-
-
     @Test
     public void pollingContainerTest() {
 
     }
-
-
 
 
 }

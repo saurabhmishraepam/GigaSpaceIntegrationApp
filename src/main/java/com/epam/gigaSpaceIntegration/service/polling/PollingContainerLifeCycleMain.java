@@ -1,6 +1,6 @@
-package com.epam.gigaSpaceIntegration.app;
+package com.epam.gigaSpaceIntegration.service.polling;
 
-import com.epam.gigaSpaceIntegration.bean.Data;
+import com.epam.gigaSpaceIntegration.bean.polling.Data;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
 import org.openspaces.core.space.EmbeddedSpaceConfigurer;

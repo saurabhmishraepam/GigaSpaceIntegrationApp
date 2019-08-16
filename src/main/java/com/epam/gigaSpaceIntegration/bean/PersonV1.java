@@ -13,6 +13,7 @@ public class PersonV1 {
     //private String phoneNumber;
     private Integer age;
     private Integer version;
+
     public PersonV1() {
     }
 
@@ -68,7 +69,15 @@ public class PersonV1 {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 
+    @SpaceVersion
+    public Integer getVersion() {
+        return version;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -78,15 +87,6 @@ public class PersonV1 {
         PersonV1 person = (PersonV1) o;
 
         return id.equals(person.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return id.hashCode();
-    }
-    @SpaceVersion
-    public Integer getVersion() {
-        return version;
     }
 
     public void setVersion(Integer version) {
