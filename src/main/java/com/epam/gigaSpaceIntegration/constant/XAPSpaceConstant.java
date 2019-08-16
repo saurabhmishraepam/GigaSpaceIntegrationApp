@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.config;
+package com.epam.gigaSpaceIntegration.constant;
 
 public enum XAPSpaceConstant {
 

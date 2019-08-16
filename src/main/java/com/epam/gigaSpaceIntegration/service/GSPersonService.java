@@ -1,6 +1,6 @@
 package com.epam.gigaSpaceIntegration.service;
 
-import com.epam.gigaSpaceIntegration.config.GSGridModeConfig;
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.bean.Person;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
 import com.j_spaces.core.LeaseContext;
@@ -17,7 +17,7 @@ public class GSPersonService {
     private GigaSpace gigaSpace;
 
     public GSPersonService() {
-            gigaSpace = xapConfiguration.gigaSpaceFactory(GSGridModeConfig.REMOTE);
+            gigaSpace = xapConfiguration.gigaSpaceFactory(GSGridModeConstant.REMOTE);
     }
 
     public void write(final Person person) {

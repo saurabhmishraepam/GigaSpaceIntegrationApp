@@ -1,5 +1,7 @@
 package com.epam.gigaSpaceIntegration.config;
 
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
+import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
 import org.openspaces.core.space.EmbeddedSpaceConfigurer;
@@ -11,19 +13,34 @@ public class XAPConfiguration {
     private static Logger logger = LoggerFactory.getLogger(XAPConfiguration.class);
     private XAPSpaceConstant defaultConfig = XAPSpaceConstant.DEFAULT_SPACE;
 
-    public GigaSpace gigaSpaceFactory(GSGridModeConfig gridMode) {
+    public GigaSpace gigaSpaceFactory(GSGridModeConstant gridMode) {
 
-        if (gridMode == GSGridModeConfig.EMBEDDED) {
-            GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(defaultConfig.getSpaceName())).gigaSpace();
-            logger.info("Created embedded data-grid: " + defaultConfig.getSpaceName());
-            return space;
-        } else if (gridMode == GSGridModeConfig.REMOTE) {
-            GigaSpace space = new GigaSpaceConfigurer(new SpaceProxyConfigurer(defaultConfig.getSpaceName()).lookupLocators(defaultConfig.getHostName())).gigaSpace();
-            //GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace?locators=Host1,Host2")).gigaSpace();
-            logger.info("Connected to remote data-grid: " + defaultConfig.getSpaceName());
-            return space;
-        } else {
-            throw new IllegalArgumentException("Bad configuration");
+        switch (gridMode) {
+            case EMBEDDED: {
+                return gigaSpaceFactoryEmbedded();
+            }
+            case REMOTE: {
+                return gigaSpaceFactoryRemote();
+            }
+
         }
+        throw new IllegalArgumentException("Bad configuration");
+
     }
+
+    private GigaSpace gigaSpaceFactoryEmbedded() {
+        GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(defaultConfig.getSpaceName())).gigaSpace();
+        logger.info("Created embedded data-grid: " + defaultConfig.getSpaceName());
+        return space;
+    }
+
+    private GigaSpace gigaSpaceFactoryRemote() {
+        GigaSpace space = new GigaSpaceConfigurer(new SpaceProxyConfigurer(defaultConfig.getSpaceName()).lookupLocators(defaultConfig.getHostName())).gigaSpace();
+        //GigaSpace space = new GigaSpaceConfigurer(new UrlSpaceConfigurer("jini://*/*/mySpace?locators=Host1,Host2")).gigaSpace();
+        logger.info("Connected to remote data-grid: " + defaultConfig.getSpaceName());
+        return space;
+
+    }
+
+
 }

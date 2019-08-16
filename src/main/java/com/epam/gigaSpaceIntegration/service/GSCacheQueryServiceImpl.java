@@ -1,6 +1,6 @@
 package com.epam.gigaSpaceIntegration.service;
 
-import com.epam.gigaSpaceIntegration.config.GSGridModeConfig;
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
 import com.j_spaces.core.LeaseContext;
@@ -18,7 +18,7 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
     private GigaSpace gigaSpace;
 
     public GSCacheQueryServiceImpl() {
-        gigaSpace = new XAPConfiguration().gigaSpaceFactory(GSGridModeConfig.REMOTE);
+        gigaSpace = new XAPConfiguration().gigaSpaceFactory(GSGridModeConstant.REMOTE);
     }
 
     @Override
