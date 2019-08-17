@@ -1,0 +1,97 @@
+%define
+package model.person.v2
+
+import org.insightedge.scala.annotation._
+import scala.beans.BeanProperty
+
+
+case class Person(
+    @BeanProperty
+    @SpaceId
+    var id: Int,
+    @SpaceRouting
+    @BeanProperty
+    var firstName : String,
+    @BeanProperty
+    @SpaceIndex
+    var lastName : String,
+    @BeanProperty
+    var phoneNumber : String,
+    @BeanProperty
+    var age : Int
+    
+    ){ def this()= this(1, "", "", "", 1) }
+
+
+%spark
+import model.person.v2._
+import org.insightedge.spark.implicits.all._
+import org.insightedge.spark.context.InsightEdgeConfig
+
+//Change space name here if not working with default
+val ieConfig = new InsightEdgeConfig("person",lookupGroups = None, lookupLocators = Some("saurabh-home"))
+
+sc.initializeInsightEdgeContext(ieConfig)
+
+
+%spark
+import scala.util.Random
+val firstNames = Array("Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil" )
+val lastNames=Array("Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN")
+
+val i=Random.nextInt(9)
+val j=Random.nextInt(9);
+
+val personRdd=sc.parallelize(1 to 1000).map(i => {
+    Person(i, firstNames(Random.nextInt(9)), lastNames(Random.nextInt(9)),"", Random.nextInt(20) +20)
+    
+})
+
+personRdd.saveToGrid()
+
+%spark
+val plainRdd = sc.gridRdd[Person]()
+val count = plainRdd.count()
+
+
+%spark
+val sqlRdd = sc.gridSql[Person]("age > ?", Seq(30))
+println(sqlRdd)
+val count = sqlRdd.count()
+
+%spark
+
+val nameFinder =sc.gridSql[Person]("firstName =?", Seq("Saurabh"))
+
+println(nameFinder.count())
+
+
+%spark
+
+val nameFinder =sc.gridSql[Person]("lastName =?", Seq("Mishra"))
+
+println(nameFinder.count())
+
+%spark
+val df = spark.read.grid[Person]
+df.printSchema()
+df.createOrReplaceTempView("person")
+
+%sql
+
+select firstName from person
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
