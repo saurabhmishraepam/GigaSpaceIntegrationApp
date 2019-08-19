@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.constant;
+package com.epam.gigaspaceintegration.constant;
 
 /**
  * Connection mode

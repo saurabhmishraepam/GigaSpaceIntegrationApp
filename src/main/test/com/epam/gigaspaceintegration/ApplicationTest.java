@@ -1,18 +1,17 @@
-package com.epam.gigaSpaceIntegration;
+package com.epam.gigaspaceintegration;
 
-import com.epam.gigaSpaceIntegration.bean.Person;
-import com.epam.gigaSpaceIntegration.bean.PersonV1;
-import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
-import com.epam.gigaSpaceIntegration.constant.QueryConstants;
-import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
-import com.epam.gigaSpaceIntegration.service.CacheQueryService;
-import com.epam.gigaSpaceIntegration.service.GSCacheQueryServiceImpl;
-import com.epam.gigaSpaceIntegration.util.QueryBuilder;
+import com.epam.gigaspaceintegration.bean.Person;
+import com.epam.gigaspaceintegration.bean.PersonV1;
+import com.epam.gigaspaceintegration.constant.GSGridModeConstant;
+import com.epam.gigaspaceintegration.constant.QueryConstants;
+import com.epam.gigaspaceintegration.constant.XAPSpaceConstant;
+import com.epam.gigaspaceintegration.service.CacheQueryService;
+import com.epam.gigaspaceintegration.service.GSCacheQueryServiceImpl;
+import com.epam.gigaspaceintegration.util.QueryBuilder;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.openspaces.core.UnusableEntryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,6 @@
-package com.epam.gigaSpaceIntegration.util;
+package com.epam.gigaspaceintegration.util;
 
-import com.epam.gigaSpaceIntegration.constant.QueryConstants;
+import com.epam.gigaspaceintegration.constant.QueryConstants;
 
 /**
  * define the logic to build the query and validate against predefined rules

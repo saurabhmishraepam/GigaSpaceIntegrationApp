@@ -1,7 +1,7 @@
-package com.epam.gigaSpaceIntegration.service.polling;
+package com.epam.gigaspaceintegration.service.polling;
 
-import com.epam.gigaSpaceIntegration.bean.Person;
-import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
+import com.epam.gigaspaceintegration.bean.Person;
+import com.epam.gigaspaceintegration.config.XAPConfiguration;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.events.adapter.SpaceDataEvent;
 import org.openspaces.events.polling.SimplePollingContainerConfigurer;

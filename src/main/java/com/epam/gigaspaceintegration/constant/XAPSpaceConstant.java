@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.constant;
+package com.epam.gigaspaceintegration.constant;
 
 /**
  * This class represents the Space details

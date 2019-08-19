@@ -1,10 +1,9 @@
-package com.epam.gigaSpaceIntegration.config;
+package com.epam.gigaspaceintegration.config;
 
-import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
-import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
+import com.epam.gigaspaceintegration.constant.GSGridModeConstant;
+import com.epam.gigaspaceintegration.constant.XAPSpaceConstant;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
-import org.openspaces.core.space.CannotFindSpaceException;
 import org.openspaces.core.space.EmbeddedSpaceConfigurer;
 import org.openspaces.core.space.SpaceProxyConfigurer;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.service;
+package com.epam.gigaspaceintegration.service;
 
 
 import java.util.Optional;

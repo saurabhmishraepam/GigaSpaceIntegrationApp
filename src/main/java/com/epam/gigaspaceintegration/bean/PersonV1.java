@@ -1,30 +1,29 @@
-package com.epam.gigaSpaceIntegration.bean;
+package com.epam.gigaspaceintegration.bean;
 
 import com.gigaspaces.annotation.pojo.*;
 import com.gigaspaces.metadata.index.SpaceIndexType;
 
 @SpaceClass
-public class Person {
+public class PersonV1 {
 
     private Integer id;
     private String firstName;
     private String lastName;
-    private String phoneNumber;
     private Integer age;
     private Integer version;
 
-    public Person() { }
-    public Person(String firstName) {
+    public PersonV1() { }
+    public PersonV1(String firstName) {
         this.firstName = firstName;
     }
-    public Person(String firstName, String lastName) {
+    public PersonV1(String firstName, String lastName) {
         this.lastName = lastName;
     }
-    public Person(Integer id, String firstName, String lastName, String phoneNumber, Integer age) {
+
+    public PersonV1(Integer id, String firstName, String lastName, Integer age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
         this.age = age;
     }
 
@@ -35,14 +34,6 @@ public class Person {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public Integer getAge() {
@@ -76,8 +67,9 @@ public class Person {
         return version;
     }
 
-    public void setVersion(Integer version) {
-        this.version = version;
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
 
     @Override
@@ -85,14 +77,13 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Person person = (Person) o;
+        PersonV1 person = (PersonV1) o;
 
         return id.equals(person.id);
     }
 
-    @Override
-    public int hashCode() {
-        return id.hashCode();
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @Override
@@ -101,7 +92,6 @@ public class Person {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", age=" + age +
                 ", version=" + version +
                 '}';

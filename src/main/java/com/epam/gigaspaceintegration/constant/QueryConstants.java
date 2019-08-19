@@ -1,4 +1,4 @@
-package com.epam.gigaSpaceIntegration.constant;
+package com.epam.gigaspaceintegration.constant;
 
 /**
  * Define the Query to write services independent of these string defination
