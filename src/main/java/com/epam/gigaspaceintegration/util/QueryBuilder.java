@@ -1,13 +1,13 @@
 package com.epam.gigaspaceintegration.util;
 
-import com.epam.gigaspaceintegration.constant.QueryConstants;
+import com.epam.gigaspaceintegration.constant.QueryParameters;
 
 /**
  * define the logic to build the query and validate against predefined rules
  */
 public class QueryBuilder {
 
-    public static String queryBuilder(QueryConstants queryConst, String key, String value ){
+    public static String queryBuilder(QueryParameters queryConst, String key, String value ){
 
         // add query validity checks
 

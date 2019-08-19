@@ -3,8 +3,8 @@ package com.epam.gigaspaceintegration;
 import com.epam.gigaspaceintegration.bean.Person;
 import com.epam.gigaspaceintegration.bean.PersonV1;
 import com.epam.gigaspaceintegration.constant.GSGridMode;
-import com.epam.gigaspaceintegration.constant.QueryConstants;
-import com.epam.gigaspaceintegration.constant.XAPSpaceDetails;
+import com.epam.gigaspaceintegration.constant.QueryParameters;
+import com.epam.gigaspaceintegration.constant.XAPSpaceInstance;
 import com.epam.gigaspaceintegration.service.CacheQueryService;
 import com.epam.gigaspaceintegration.service.GSCacheQueryServiceImpl;
 import com.epam.gigaspaceintegration.util.QueryBuilder;
@@ -12,6 +12,7 @@ import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.openspaces.core.UnusableEntryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +34,7 @@ public class ApplicationTest {
     private static String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
     private static String[] lastNames = {"Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN"};
 
-    private static XAPSpaceDetails xapSpacedetailes;
+    private static XAPSpaceInstance xapSpacedetailes;
     private static CacheQueryService<Person> personCacheService ;
     private static GSGridMode mode;
 
@@ -47,7 +48,7 @@ public class ApplicationTest {
     }
 
     private static void prepareTestEnvironment(){
-        xapSpacedetailes= XAPSpaceDetails.CUSTOME_SPACE;
+        xapSpacedetailes= XAPSpaceInstance.CUSTOME_SPACE;
         xapSpacedetailes.setSpaceName(SPACE_NAME);
         xapSpacedetailes.setHostName(HOST_NAME);
         mode= GSGridMode.REMOTE;
@@ -118,7 +119,7 @@ public class ApplicationTest {
     @Test
     @Ignore
     public void getAllPersonWithAgeGtThen30() {
-        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryParameters.GT, "age", "30"));
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
         assertTrue(count == arr.length);
@@ -126,8 +127,8 @@ public class ApplicationTest {
 
     @Test
     public void deleteAllPersonWithAgeGtThen30() {
-        personCacheService.deleteMultiple(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
-        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
+        personCacheService.deleteMultiple(new Person(), QueryBuilder.queryBuilder(QueryParameters.GT, "age", "30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryParameters.GT, "age", "30"));
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
         assertTrue(count == 0);
@@ -147,11 +148,12 @@ public class ApplicationTest {
         Optional<Person> person2 = personCacheService.readById(new Person(), 1001);
         assertTrue(person2.isPresent());
 
-        CacheQueryService<PersonV1> personV1CacheService = new GSCacheQueryServiceImpl<PersonV1>(mode, xapSpacedetailes);
-        //unusableEntryException.expect(UnusableEntryException.class);
-      //  unusableEntryException.expectMessage("The operation's type description is incompatible with the type description stored in the space.");
-       // personV1CacheService.write(new PersonV1(1001, firstName, lastNmae, age));
-       // cleanup();
+        /*CacheQueryService<PersonV1> personV1CacheService = new GSCacheQueryServiceImpl<PersonV1>(mode, xapSpacedetailes);
+        unusableEntryException.expect(UnusableEntryException.class);
+       unusableEntryException.expectMessage("The operation's type description is incompatible with the type description stored in the space.");
+        personV1CacheService.write(new PersonV1(1001, firstName, lastNmae, age));
+        */
+       //cleanup();
     }
 
     @Test
@@ -178,12 +180,5 @@ public class ApplicationTest {
         personCacheService.write(personOld);
 
     }
-
-
-    @Test
-    public void pollingContainerTest() {
-
-    }
-
 
 }

@@ -2,8 +2,8 @@ package com.epam.gigaspaceintegration.service;
 
 import com.epam.gigaspaceintegration.config.XAPConfiguration;
 import com.epam.gigaspaceintegration.constant.GSGridMode;
-import com.epam.gigaspaceintegration.constant.QueryConstants;
-import com.epam.gigaspaceintegration.constant.XAPSpaceDetails;
+import com.epam.gigaspaceintegration.constant.QueryParameters;
+import com.epam.gigaspaceintegration.constant.XAPSpaceInstance;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
@@ -26,12 +26,12 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
     private GigaSpace gigaSpace;
 
     /**
-     * get the instance of the class with two environment aware properties
+     * get the instance of the object with two environment aware properties
      *
      * @param mode             Embedded/ Remote
      * @param xapSpacedetailes host and space details class
      */
-     public GSCacheQueryServiceImpl(GSGridMode mode, XAPSpaceDetails xapSpacedetailes) {
+     public GSCacheQueryServiceImpl(GSGridMode mode, XAPSpaceInstance xapSpacedetailes) {
         try {
             gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
         } catch (CannotFindSpaceException exce) {
@@ -83,7 +83,7 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
     @Override
     public Optional<T> readByQuery(T t, String key, String value) {
 
-        return readByQuery(new SQLQuery(t.getClass(), key + QueryConstants.EQ, value));
+        return readByQuery(new SQLQuery(t.getClass(), key + QueryParameters.EQ, value));
 
     }
 

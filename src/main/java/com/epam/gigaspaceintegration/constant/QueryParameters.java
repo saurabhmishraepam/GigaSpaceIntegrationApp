@@ -3,7 +3,7 @@ package com.epam.gigaspaceintegration.constant;
 /**
  * Define the Query to write services independent of these string defination
  */
-public enum QueryConstants {
+public enum QueryParameters {
 
     GT(">", "greater"),
     LT("<", "less"),
@@ -11,7 +11,7 @@ public enum QueryConstants {
     AND("AND", "logical and operation"),
     OR("OR", "logical or operation");
 
-    QueryConstants(String value, String description){
+    QueryParameters(String value, String description){
         this.value=value;
         this.description=description;
     }
