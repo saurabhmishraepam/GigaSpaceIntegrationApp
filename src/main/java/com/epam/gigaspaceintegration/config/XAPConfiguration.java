@@ -1,7 +1,7 @@
 package com.epam.gigaspaceintegration.config;
 
-import com.epam.gigaspaceintegration.constant.GSGridModeConstant;
-import com.epam.gigaspaceintegration.constant.XAPSpaceConstant;
+import com.epam.gigaspaceintegration.constant.GSGridMode;
+import com.epam.gigaspaceintegration.constant.XAPSpaceDetails;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
 import org.openspaces.core.space.EmbeddedSpaceConfigurer;
@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public class XAPConfiguration {
     private static Logger logger = LoggerFactory.getLogger(XAPConfiguration.class);
 
-    public GigaSpace gigaSpaceFactory(GSGridModeConstant gridMode, XAPSpaceConstant XAPSpaceDetails) {
+    public GigaSpace gigaSpaceFactory(GSGridMode gridMode, XAPSpaceDetails XAPSpaceDetails) {
 
             switch (gridMode) {
                 case EMBEDDED: {
@@ -30,14 +30,14 @@ public class XAPConfiguration {
 
     }
 
-    private GigaSpace gigaSpaceFactoryEmbedded(XAPSpaceConstant defaultConfig) {
+    private GigaSpace gigaSpaceFactoryEmbedded(XAPSpaceDetails defaultConfig) {
         GigaSpace space = new GigaSpaceConfigurer(new EmbeddedSpaceConfigurer(defaultConfig.getSpaceName()))
                 .gigaSpace();
         logger.info("Created embedded data-grid: " + defaultConfig.getSpaceName());
         return space;
     }
 
-    private GigaSpace gigaSpaceFactoryRemote(XAPSpaceConstant defaultConfig) {
+    private GigaSpace gigaSpaceFactoryRemote(XAPSpaceDetails defaultConfig) {
         GigaSpace space = new GigaSpaceConfigurer(new SpaceProxyConfigurer(defaultConfig.getSpaceName())
                 .lookupLocators(defaultConfig.getHostName())) //automatically it connects to localhost
                 .gigaSpace();

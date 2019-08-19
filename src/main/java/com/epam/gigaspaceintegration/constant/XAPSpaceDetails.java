@@ -4,17 +4,17 @@ package com.epam.gigaspaceintegration.constant;
  * This class represents the Space details
  * can be extended to support jini url to be added here
  */
-public enum XAPSpaceConstant {
+public enum XAPSpaceDetails {
 
 
     CUSTOME_SPACE();
 
     private String spaceName;
     private String hostName;
-    XAPSpaceConstant(){
+    XAPSpaceDetails(){
 
     }
-    XAPSpaceConstant(String spaceName, String hostName) {
+    XAPSpaceDetails(String spaceName, String hostName) {
         this.spaceName = spaceName;
         this.hostName = hostName;
     }

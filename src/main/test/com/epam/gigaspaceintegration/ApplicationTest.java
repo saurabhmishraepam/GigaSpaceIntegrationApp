@@ -2,9 +2,9 @@ package com.epam.gigaspaceintegration;
 
 import com.epam.gigaspaceintegration.bean.Person;
 import com.epam.gigaspaceintegration.bean.PersonV1;
-import com.epam.gigaspaceintegration.constant.GSGridModeConstant;
+import com.epam.gigaspaceintegration.constant.GSGridMode;
 import com.epam.gigaspaceintegration.constant.QueryConstants;
-import com.epam.gigaspaceintegration.constant.XAPSpaceConstant;
+import com.epam.gigaspaceintegration.constant.XAPSpaceDetails;
 import com.epam.gigaspaceintegration.service.CacheQueryService;
 import com.epam.gigaspaceintegration.service.GSCacheQueryServiceImpl;
 import com.epam.gigaspaceintegration.util.QueryBuilder;
@@ -33,9 +33,9 @@ public class ApplicationTest {
     private static String[] firstNames = {"Saurabh", "Rahul", "Amit", "Jhony", "Ravi", "Mohit", "Piyush", "Ajit", "Shweta", "Sunil"};
     private static String[] lastNames = {"Mishra", "Jain", "Sharma", "KKKK", "MMMM", "PPPP", "ZZZZ", "LLLL", "RRRRR", "NNNNN"};
 
-    private static XAPSpaceConstant xapSpacedetailes;
+    private static XAPSpaceDetails xapSpacedetailes;
     private static CacheQueryService<Person> personCacheService ;
-    private static GSGridModeConstant mode;
+    private static GSGridMode mode;
 
     @Rule
     public ExpectedException unusableEntryException = ExpectedException.none();
@@ -47,10 +47,10 @@ public class ApplicationTest {
     }
 
     private static void prepareTestEnvironment(){
-        xapSpacedetailes=XAPSpaceConstant.CUSTOME_SPACE;
+        xapSpacedetailes= XAPSpaceDetails.CUSTOME_SPACE;
         xapSpacedetailes.setSpaceName(SPACE_NAME);
         xapSpacedetailes.setHostName(HOST_NAME);
-        mode=GSGridModeConstant.REMOTE;
+        mode= GSGridMode.REMOTE;
         personCacheService=   new GSCacheQueryServiceImpl<Person>(mode, xapSpacedetailes);
     }
 

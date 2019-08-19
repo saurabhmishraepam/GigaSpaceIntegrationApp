@@ -1,9 +1,9 @@
 package com.epam.gigaspaceintegration.service;
 
 import com.epam.gigaspaceintegration.config.XAPConfiguration;
-import com.epam.gigaspaceintegration.constant.GSGridModeConstant;
+import com.epam.gigaspaceintegration.constant.GSGridMode;
 import com.epam.gigaspaceintegration.constant.QueryConstants;
-import com.epam.gigaspaceintegration.constant.XAPSpaceConstant;
+import com.epam.gigaspaceintegration.constant.XAPSpaceDetails;
 import com.j_spaces.core.LeaseContext;
 import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
@@ -31,7 +31,7 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
      * @param mode             Embedded/ Remote
      * @param xapSpacedetailes host and space details class
      */
-     public GSCacheQueryServiceImpl(GSGridModeConstant mode, XAPSpaceConstant xapSpacedetailes) {
+     public GSCacheQueryServiceImpl(GSGridMode mode, XAPSpaceDetails xapSpacedetailes) {
         try {
             gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
         } catch (CannotFindSpaceException exce) {
