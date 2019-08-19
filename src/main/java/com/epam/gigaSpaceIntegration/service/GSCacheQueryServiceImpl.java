@@ -1,7 +1,7 @@
 package com.epam.gigaSpaceIntegration.service;
 
-import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.config.XAPConfiguration;
+import com.epam.gigaSpaceIntegration.constant.GSGridModeConstant;
 import com.epam.gigaSpaceIntegration.constant.QueryConstants;
 import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import com.j_spaces.core.LeaseContext;
@@ -11,10 +11,12 @@ import org.openspaces.core.space.CannotFindSpaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 /**
  * GS client dependent implementation
+ *
  * @param <T> T is the type of object to persist in the cache
  */
 public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
@@ -25,18 +27,18 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
 
     /**
      * get the instance of the class with two environment aware properties
-     * @param mode Embedded/ Remote
+     *
+     * @param mode             Embedded/ Remote
      * @param xapSpacedetailes host and space details class
      */
     public GSCacheQueryServiceImpl(GSGridModeConstant mode, XAPSpaceConstant xapSpacedetailes) {
         try {
             gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
-        }catch (CannotFindSpaceException exce){
+        } catch (CannotFindSpaceException exce) {
             logger.error("Space name is not valid : {}", exce);
             throw new IllegalArgumentException("Bad gigaspace configuration details space : {} ", exce);
-        }
-        finally {
-            if(gigaSpace==null){
+        } finally {
+            if (gigaSpace == null) {
                 logger.error("Unable to connect to the GS Service: {}");
                 throw new IllegalArgumentException("Bad gigaspace configuration details");
             }
@@ -60,10 +62,18 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
     }
 
     @Override
-    public void deletePerson(T t) {
+    public void delete(T t) {
         gigaSpace.clear(t);
     }
 
+    @Override
+    public void deleteMultiple(T t, String query ) {
+        T[] result = (T[]) readMultipleByQuery(new SQLQuery(t.getClass(), query));
+        Arrays.stream(result).forEach(
+                tObj ->{gigaSpace.clear(tObj);}
+        );
+
+    }
     @Override
     public T[] readAll(T t) {
         T[] results = gigaSpace.readMultiple(t);

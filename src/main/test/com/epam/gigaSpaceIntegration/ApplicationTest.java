@@ -28,7 +28,7 @@ public class ApplicationTest {
 
     //modify these properties to change the space and host configuration
     private static final String HOST_NAME ="EPINHYDW0423";
-    private static final String SPACE_NAME ="person";
+    private static final String SPACE_NAME ="demo";
 
     private static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
 
@@ -73,14 +73,14 @@ public class ApplicationTest {
 
     }
 
-    @AfterClass
+   // @AfterClass
     public static void cleanup() {
         //clean after all is processed
         personsList.forEach(
                 v -> {
                     Arrays.stream(personCacheService.readAll(new Person())).forEach(q ->
                             {
-                                personCacheService.deletePerson(q);
+                                personCacheService.delete(q);
                             }
                     );
                 }
@@ -91,8 +91,8 @@ public class ApplicationTest {
     @Test
     public void shouldConnectAndValidateAll() {
         int age = 30;
-        personCacheService.deletePerson(new Person(1, "saurabh", "mishra", "", age));
-        personCacheService.deletePerson(new Person(2, "saurabh", "mishra", "", age));
+        personCacheService.delete(new Person(1, "saurabh", "mishra", "", age));
+        personCacheService.delete(new Person(2, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(1, "saurabh", "mishra", "", age));
         personCacheService.write(new Person(2, "saurabh", "mishra", "", age));
         Optional<Person> result2 = personCacheService.readByQuery(new Person(), "firstName", "saurabh");
@@ -125,6 +125,15 @@ public class ApplicationTest {
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
         assertTrue(count == arr.length);
+    }
+
+    @Test
+    public void deleteAllPersonWithAgeGtThen30() {
+        personCacheService.deleteMultiple(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
+        long count = personsList.stream().filter(p -> p.getAge() > 30).count();
+        logger.info("search all age >30 count :: " + arr.length);
+        assertTrue(count == 0);
     }
 
     @Test

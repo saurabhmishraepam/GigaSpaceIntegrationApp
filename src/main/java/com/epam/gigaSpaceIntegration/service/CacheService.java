@@ -15,7 +15,9 @@ public interface CacheService<T> {
 
     Optional<T> readById(T t, int id);
 
-    void deletePerson(T t);
+    void delete(T t);
 
     T[] readAll(T t);
+
+    void deleteMultiple(T t,String query );
 }
