@@ -8,10 +8,7 @@ import com.epam.gigaSpaceIntegration.constant.XAPSpaceConstant;
 import com.epam.gigaSpaceIntegration.service.CacheQueryService;
 import com.epam.gigaSpaceIntegration.service.GSCacheQueryServiceImpl;
 import com.epam.gigaSpaceIntegration.util.QueryBuilder;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -28,7 +25,7 @@ public class ApplicationTest {
 
     //modify these properties to change the space and host configuration
     private static final String HOST_NAME ="EPINHYDW0423";
-    private static final String SPACE_NAME ="demo";
+    private static final String SPACE_NAME ="person";
 
     private static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
 
@@ -120,6 +117,7 @@ public class ApplicationTest {
     }
 
     @Test
+    @Ignore
     public void getAllPersonWithAgeGtThen30() {
         Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryConstants.GT, "age", "30"));
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
