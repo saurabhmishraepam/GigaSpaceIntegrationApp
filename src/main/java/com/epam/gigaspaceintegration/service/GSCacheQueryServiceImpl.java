@@ -1,5 +1,6 @@
 package com.epam.gigaspaceintegration.service;
 
+import com.epam.gigaspaceintegration.bean.Person;
 import com.epam.gigaspaceintegration.config.XAPConfiguration;
 import com.epam.gigaspaceintegration.constant.GSGridMode;
 import com.epam.gigaspaceintegration.constant.QueryParameters;
@@ -13,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Optional;
-
+import static org.openspaces.extensions.QueryExtension.*;
 /**
  * GS client dependent implementation
  *
@@ -23,7 +24,7 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
 
     private static final Logger logger = LoggerFactory.getLogger(GSCacheQueryServiceImpl.class);
     // this can be autowired
-    private GigaSpace gigaSpace;
+    public GigaSpace gigaSpace;
 
     /**
      * get the instance of the object with two environment aware properties
@@ -32,6 +33,9 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
      * @param xapSpacedetailes host and space details class
      */
      public GSCacheQueryServiceImpl(GSGridMode mode, XAPSpaceInstance xapSpacedetailes) {
+
+
+
         try {
             gigaSpace = new XAPConfiguration().gigaSpaceFactory(mode, xapSpacedetailes);
         } catch (CannotFindSpaceException exce) {
@@ -58,6 +62,9 @@ public class GSCacheQueryServiceImpl<T> implements CacheQueryService<T> {
 
     @Override
     public Optional<T> readById(T t, int id) {
+
+        SQLQuery<Person> query = new SQLQuery<Person>(Person.class,"");
+        gigaSpace.readMultiple(query);
         return Optional.of((T) gigaSpace.readById(t.getClass(), id));
     }
 

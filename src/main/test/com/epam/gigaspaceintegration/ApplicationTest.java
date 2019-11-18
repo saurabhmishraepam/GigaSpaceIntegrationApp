@@ -29,7 +29,7 @@ public class ApplicationTest {
 
     //modify these properties to change the space and host configuration
     private static final String HOST_NAME ="EPINHYDW0423";
-    private static final String SPACE_NAME ="person";
+    private static final String SPACE_NAME ="demo";
 
     private static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
 
@@ -121,7 +121,8 @@ public class ApplicationTest {
 
     @Test
     public void getAllPersonWithAgeGtThen30() {
-        Person[] arr = personCacheService.readMultipleByQuery(new Person(), QueryBuilder.queryBuilder(QueryParameters.GT, "age", "30"));
+        Person[] arr = personCacheService.readMultipleByQuery(new Person(),
+                QueryBuilder.queryBuilder(QueryParameters.GT, "age", "30"));
         long count = personsList.stream().filter(p -> p.getAge() > 30).count();
         logger.info("search all age >30 count :: " + arr.length);
     }
